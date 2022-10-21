@@ -4,7 +4,6 @@ import Notification from 'components/Notification/Notification';
 import MovieGalleryList from 'components/Gallery/GalleryList/MovieGalleryList';
 import { FetchApiTrending } from 'components/FetchApi/FetchApi';
 import { AppContainer } from 'components/App/AppStyled';
-import { Outlet } from "react-router-dom";
 
 export const Home = () => {
     const [movies, setMovies] = useState([]);
@@ -35,13 +34,10 @@ export const Home = () => {
             {loading && <Loader />}
 
             {error && <Notification />}
-            {isMovies &&
-                <>
-                    <h2>Trending today</h2>
-                    <MovieGalleryList movies={movies} />
-                </>
-            }
-            <Outlet/>
+            {isMovies &&<>
+                <h2>Trending today</h2>
+                <MovieGalleryList movies={movies} />
+            </>}
         </AppContainer>
     )
 }

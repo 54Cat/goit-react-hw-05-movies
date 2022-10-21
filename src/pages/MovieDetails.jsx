@@ -1,8 +1,8 @@
-import {useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Loader from 'components/Loader/Loader';
 import Notification from 'components/Notification/Notification';
-import {SingleMovieMarkup} from 'components/MovieDetails/SingleMovieMarkup';
+import { SingleMovieMarkup } from 'components/MovieDetails/SingleMovieMarkup';
 import { FetchApiMovieId } from 'components/FetchApi/FetchApi';
 import { AppContainer } from 'components/App/AppStyled';
 
@@ -12,9 +12,9 @@ export const MovieDetails = () => {
     const [loading, setLoading] = useState(false);
     const { id } = useParams();
     
-      useEffect(() => {
+    useEffect(() => {
         const fetchMovieId = async (movieId) => {
-        setLoading(true);
+            setLoading(true);
             try {
                 const data = await FetchApiMovieId(movieId);
                 setMovie(data);
@@ -34,8 +34,6 @@ export const MovieDetails = () => {
             {loading && <Loader />}
             {error && <Notification />}
             {movie && <SingleMovieMarkup details={movie} />} 
-            <Outlet/>
-
         </AppContainer>
     )
 }

@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  margin: 0 auto;
-`;
-
 export const Header = styled.header`
 top: 0;
 left: 0;

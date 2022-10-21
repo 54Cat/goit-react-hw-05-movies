@@ -1,17 +1,29 @@
-import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import styled from '@emotion/styled'; import { Link } from 'react-router-dom';
 
-export const GalleryItem = styled.li` 
-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+export const Section = styled.div` 
 
-&:hover{
-  cursor: pointer;
-  transform: scale(1.05);
-}
 `;
 
-export const ItemLink = styled(Link)`
+export const Title = styled.h3` 
+
+`;
+
+export const Text = styled.p` 
+
+`;
+
+export const DetailsList = styled.ul` 
+margin: 0;
+padding: 0 16px;
+list-style: none;
+`;
+
+export const DetailsItem = styled.li` 
+color: darkgray;
+
+`;
+
+export const DetailsLink = styled(Link)`
   text-decoration: none;
   color: black;
 
@@ -20,11 +32,53 @@ export const ItemLink = styled(Link)`
   }
 `;
 
-export const ItemMoviePoster = styled.img` 
+export const MoviePoster = styled.img` 
 width: 214px;
 `;
 
-export const ItemMovieName = styled.p` 
+export const MovieName = styled.h2` 
 padding: 0 16px;
 font-weight: 500;
+`;
+
+
+//-------- Cast --------
+export const ActorList = styled.ul` 
+margin: 0; padding: 0 16px; list-style: none;
+`;
+
+export const ActorItem = styled.li` 
+color: darkgray;
+
+`;
+
+export const ActorPoster = styled.img` 
+width: 214px;
+`;
+
+export const ActorName = styled.p` 
+padding: 0 16px; font-weight: 500;
+`;
+
+export const ActorCharacter = styled.p` 
+padding: 0 16px; font-weight: 500;
+`;
+
+
+
+//-------- reviews --------
+export const ReviewsList = styled.ul` 
+margin: 0; padding: 0 16px; list-style: none;
+`;
+
+export const ReviewsItem = styled.li` 
+color: darkgray; 
+`;
+
+export const ReviewerName = styled.p` 
+padding: 0 16px; font-weight: 500;
+`;
+
+export const ReviewText = styled.p` 
+padding: 0 16px; font-weight: 500;
 `;

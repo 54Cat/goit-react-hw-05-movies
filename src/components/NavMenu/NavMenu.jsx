@@ -1,4 +1,4 @@
-import { Nav, NavItem } from 'components/Header/NavMenu/NavMenuStyled';
+import { Nav, NavItem } from 'components/NavMenu/NavMenuStyled';
 
 const navItems = [
     {href: '', text:'Home'},

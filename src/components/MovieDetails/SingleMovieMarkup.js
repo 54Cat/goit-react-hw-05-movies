@@ -1,10 +1,10 @@
-import {  ItemMoviePoster } from 'components/MovieDetails/SingleMovieMarkupStyled';
-import { Link } from 'react-router-dom';
+import { Section, MovieName, MoviePoster, Title, Text, DetailsList,DetailsItem, DetailsLink } from 'components/MovieDetails/SingleMovieMarkupStyled';
+import { Outlet } from 'react-router-dom';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const SIZE = 'original';
 
-const navItems = [
+const detailsItems = [
     {href: 'cast', text:'Cast'},
     {href: 'reviews', text:'Reviews'}
 ]
@@ -15,35 +15,40 @@ export const SingleMovieMarkup = ({ details }) => {
     const date = new Date(release_date);
     const releaseYear = date.getFullYear();
 
-    const itemGenres = genres.map(({ id, name }) => <li key={id}> {name} </li>)
-
     return (
         <>
-            <ItemMoviePoster src={`${BASE_URL}${SIZE}${poster_path}`} alt={original_title} />  
-            <h2>{original_title} <span>({releaseYear})</span> </h2>
-            <p>{vote_average} <span>({vote_count})</span> </p>
-            <div>
-                <h3>Overview</h3>
-                <p>{overview}</p>
-            </div>
-            <div>
-                <h3>Genres</h3>
-                <ul>{itemGenres}</ul>
-            </div>
+            <MoviePoster src={`${BASE_URL}${SIZE}${poster_path}`} alt={original_title} /> 
+            
+            <MovieName>{original_title} <span>({releaseYear})</span> </MovieName>
 
-            <div>
-                <p>Additional Information</p>
-                <ul>
-                    
-                    {navItems.map(({ href, text }) => (
-                        <li>
-                            <Link to={href} key={href} end>
+            <Text>{vote_average} <span>({vote_count})</span> </Text>
+            <Section>
+                <Title>Overview</Title>
+                <Text>{overview}</Text>
+            </Section>
+
+            <Section>
+                <Title>Genres</Title>
+                <DetailsList>
+                    {genres.map(({ name }) =>
+                        <DetailsItem key={name}>
+                            {name}
+                        </DetailsItem>
+                    )}
+                </DetailsList>
+            </Section>
+
+            <Section>
+                <Title>Additional Information</Title>
+                <DetailsList> 
+                    {detailsItems.map(({ href, text }) => (
+                            <DetailsLink key={href} to={href}>
                                 {text}
-                            </Link>
-                        </li>
+                            </DetailsLink>
                     ))} 
-                </ul>
-            </div>
+                </DetailsList>
+            </Section>
+            <Outlet/>
         </>
     );
 }
