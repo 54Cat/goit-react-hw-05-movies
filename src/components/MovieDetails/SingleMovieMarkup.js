@@ -1,5 +1,6 @@
 import { SingleMovie,MainInfo,AdditionalInfo, ContainerPoster, ContainerInfo,Section, MovieName, MovieYear,MoviePoster, Title, Rating, Text, TextSpan, GenresList, GenresItem, DetailsList, DetailsLink } from 'components/MovieDetails/SingleMovieMarkupStyled';
 import { Outlet } from 'react-router-dom';
+import img from 'img/noPoster.jpg';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const SIZE = 'original';
@@ -20,7 +21,7 @@ export const SingleMovieMarkup = ({ details }) => {
         <SingleMovie>
             <MainInfo>
                 <ContainerPoster>
-                    <MoviePoster src={`${BASE_URL}${SIZE}${poster_path}`} alt={original_title} />
+                    <MoviePoster src={poster_path ? `${BASE_URL}${SIZE}${poster_path}` : img} alt={original_title} />
                 </ContainerPoster>
                 
                 <ContainerInfo>

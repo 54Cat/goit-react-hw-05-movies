@@ -1,5 +1,6 @@
 // import { lazy } from "react";
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { Layout } from "components/Layout/Layout";
 import { Home } from 'pages/Home';
 import { Movies } from 'pages/Movies';
@@ -8,15 +9,11 @@ import { Cast } from 'components/MovieDetails/Cast';
 import { Reviews } from 'components/MovieDetails/Reviews';
 import { NotFound } from 'pages/NotFound';
 
-import { ToastContainer } from 'react-toastify';
-
-// const createAsyncComponent = (path) => lazy(() => import(path));
-// const Home = createAsyncComponent('pages/Home');
-// const Movies = createAsyncComponent('pages/Movies');
-// const MovieDetails  = createAsyncComponent('pages/MovieDetails');
-// const Cast = createAsyncComponent('components/Cast');
-// const Reviews  = createAsyncComponent('components/Reviews');
-// const NotFound  = createAsyncComponent('pages/NotFound');
+// const Movies = lazy(() => import("pages/Movies"));
+// const MovieDetails = lazy(() => import("pages/MovieDetails"));
+// const Cast = lazy(() => import("components/MovieDetails/Cast"));
+// const Reviews = lazy(() => import("components/MovieDetails/Reviews"));
+// const NotFound = lazy(() => import("pages/NotFound"));
 
 export const App = () => {
 
