@@ -75,7 +75,7 @@ export const Movies = () => {
                 {loading && <Loader />}
                 {error && <Error />}
                 {movies && <MovieGalleryList movies={movies} />}
-                {showLoadMore && <ButtonLoadMore onClick={loadMore} text='loadMore' />}
+                {showLoadMore && <ButtonLoadMore onClick={loadMore} text='Load more' />}
             </AppContainer>
             <Outlet />
         </>

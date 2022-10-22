@@ -73,7 +73,7 @@ export const Reviews = () => {
                 <ReviewsList> 
                     {reviews.map(({ id, author, content }) => (
                         <ReviewsItem key={id}>
-                            <ReviewerName>Author: {author}</ReviewerName>
+                            <ReviewerName>{author}</ReviewerName>
                             <ReviewText>{content}</ReviewText>
                         </ReviewsItem>
                     ))} 

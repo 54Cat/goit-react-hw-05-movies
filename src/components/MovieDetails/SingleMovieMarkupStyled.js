@@ -81,7 +81,6 @@ padding-right: 8px;
 
 // --------- AdditionalInfo ---------
 export const AdditionalInfo = styled.div`
-width: 100%;
 border-bottom: 1px solid darkgrey;
 padding: 0 16px 16px 16px;
 margin-bottom: 16px;

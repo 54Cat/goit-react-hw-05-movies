@@ -1,26 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 import { SearchContainer, SearchForm, SearchFormBtn, SearchFormBtnLabel, SearchFormInput } from 'components/Form/FormStyled';
 
 export default function Searchbar({onSubmit}) {   
-    const [searchImgs, setSearchImgs] = useState('');
+    const [searchMovie, setSearchMovie] = useState('');
 
-    const handelSearchImgs = e => {
-        setSearchImgs( e.currentTarget.value.toLowerCase() );
+    // useEffect(() => {
+    //   localStorage.setItem('searchMovie', searchMovie); 
+    // }, [])
+
+    const handelSearchMovie = e => {
+        setSearchMovie( e.currentTarget.value.toLowerCase() );
     }
 
     const handleSubmit = e => {
         e.preventDefault();
 
-        if (searchImgs.trim() === '') {
+        if (searchMovie.trim() === '') {
             toast.warn('Please, enter a search query!');
             return;
         }
         
-        onSubmit(searchImgs);
-        setSearchImgs('');
+        onSubmit(searchMovie);
+        setSearchMovie('');
     }     
 
+    console.log("searchMovie", searchMovie);
         return (
             <SearchContainer>
                 <SearchForm onSubmit={handleSubmit}>
@@ -29,8 +34,8 @@ export default function Searchbar({onSubmit}) {
                         autocomplete="off"
                         autoFocus
                         placeholder="Search images and photos"
-                        value={searchImgs}
-                        onChange={handelSearchImgs}
+                        value={searchMovie}
+                        onChange={handelSearchMovie}
                     />
                     <SearchFormBtn type="submit">
                         <SearchFormBtnLabel>Search</SearchFormBtnLabel>
