@@ -21,7 +21,6 @@ export default function Searchbar({onSubmit}) {
         setSearchMovie('');
     }     
 
-    console.log("searchMovie", searchMovie);
         return (
             <SearchContainer>
                 <SearchForm onSubmit={handleSubmit}>

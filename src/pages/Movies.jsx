@@ -12,7 +12,8 @@ import { Outlet } from "react-router-dom";
 
 export const Movies = () => {
   const [movieName, setMovieName] = useState('');
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('saveMovies')) ?? [] });
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -20,7 +21,8 @@ export const Movies = () => {
 
     useEffect(() => {
         setPage(1);
-    }, [movieName]);
+        window.localStorage.setItem('saveMovies', JSON.stringify(movies))
+    }, [movies]);
   
     useEffect(() => {
         if (!movieName) {  
