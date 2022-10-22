@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from 'react-toastify';
 import { SearchContainer, SearchForm, SearchFormBtn, SearchFormBtnLabel, SearchFormInput } from 'components/Form/FormStyled';
 
 export default function Searchbar({onSubmit}) {   
     const [searchMovie, setSearchMovie] = useState('');
-
-    // useEffect(() => {
-    //   localStorage.setItem('searchMovie', searchMovie); 
-    // }, [])
 
     const handelSearchMovie = e => {
         setSearchMovie( e.currentTarget.value.toLowerCase() );
