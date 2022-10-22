@@ -9,19 +9,19 @@ import MovieGalleryList from 'components/Gallery/GalleryList/MovieGalleryList';
 import {Error} from 'components/Notification/Notification';
 import {ButtonLoadMore} from "components/Button/Button";
 import { Outlet } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const Movies = () => {
-  const [movieName, setMovieName] = useState('');
-  const [movies, setMovies] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('saveMovies')) ?? [] });
-  const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [showLoadMore, setShowLoadMore] = useState(false);
+    const [movies, setMovies] = useState([]);  
+    const [page, setPage] = useState(1);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [showLoadMore, setShowLoadMore] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const movieName = searchParams.get("query") ?? "";
 
     useEffect(() => {
         setPage(1);
-        window.localStorage.setItem('saveMovies', JSON.stringify(movies))
     }, [movies]);
   
     useEffect(() => {
@@ -70,10 +70,15 @@ export const Movies = () => {
         setPage(page => page + 1);
     }
 
+    const updateQueryString = (query) => {
+        const nextQuery = query !== "" ? { query } : {};
+        setSearchParams(nextQuery);
+    };
+
     return (
         <>
             <AppContainer>
-                <Form onSubmit={setMovieName} />
+                <Form onSubmit={updateQueryString} />
                 {loading && <Loader />}
                 {error && <Error />}
                 {movies && <MovieGalleryList movies={movies} />}

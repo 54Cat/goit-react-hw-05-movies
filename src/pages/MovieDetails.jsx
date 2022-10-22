@@ -35,7 +35,6 @@ export const MovieDetails = () => {
     const goBack = () => {
         navigate(location.state?.from ?? '/');
     };
-    console.log("location", location);
 
     return (
         <>
