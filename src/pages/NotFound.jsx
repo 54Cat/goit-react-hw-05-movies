@@ -1,5 +1,7 @@
+import { Notify } from 'components/Notification/NotificationStyled';
+
 export const NotFound = () => {
   return (
-    <p>Not found page, something went wrong. Please try again.</p>
+    <Notify>Not found page, something went wrong. Please try again.</Notify>
   );
 };

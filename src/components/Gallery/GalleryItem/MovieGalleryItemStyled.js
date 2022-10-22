@@ -25,6 +25,6 @@ width: 100%;
 `;
 
 export const ItemMovieName = styled.p` 
-padding: 0 16px;
+padding: 16px;
 font-weight: 500;
 `;

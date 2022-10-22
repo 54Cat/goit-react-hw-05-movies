@@ -1,84 +1,106 @@
 import styled from '@emotion/styled'; import { Link } from 'react-router-dom';
 
-export const Section = styled.div` 
+export const ContainerDetails = styled.div` 
+padding-left: 16px;
+`;
 
+export const SingleMovie = styled.div` 
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+`;
+
+
+// --------- MainInfo ---------
+export const MainInfo = styled.div` 
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+border-bottom: 1px solid darkgrey;
+padding: 0 16px 16px 16px;
+margin-bottom: 16px;
+`;
+
+export const ContainerPoster = styled.div` 
+max-width: 300px;
+`;
+
+export const MoviePoster = styled.img` 
+width: 100%;
+`;
+
+export const ContainerInfo = styled.div` 
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding-left: 16px;
+`;
+
+export const Section = styled.div` 
+padding-bottom: 16px;
+`;
+
+export const MovieName = styled.h2` 
+padding-bottom: 8px; 
+font-weight: 500;
+`;
+
+export const MovieYear = styled.span` 
+color: darkgray;
+font-weight: normal;
+`;
+
+export const Rating = styled.p` 
+
+`;
+
+export const TextSpan = styled.span` 
+color: darkgray;
 `;
 
 export const Title = styled.h3` 
-
+padding-bottom: 8px;
 `;
 
 export const Text = styled.p` 
+`;
 
+export const GenresList = styled.ul` 
+display: flex;
+flex-wrap: wrap;
+`;
+
+export const GenresItem = styled.li`
+padding-right: 8px;
+
+&: last-child {
+  padding-right: 0;
+}
+`;
+
+
+// --------- AdditionalInfo ---------
+export const AdditionalInfo = styled.div`
+width: 100%;
+border-bottom: 1px solid darkgrey;
+padding: 0 16px 16px 16px;
+margin-bottom: 16px;
 `;
 
 export const DetailsList = styled.ul` 
-margin: 0;
-padding: 0 16px;
-list-style: none;
-`;
-
-export const DetailsItem = styled.li` 
-color: darkgray;
-
+display: flex;
+flex-wrap: wrap;
 `;
 
 export const DetailsLink = styled(Link)`
-  text-decoration: none;
-  color: black;
+padding-right: 8px;
+color: black;
+
+&: last-child {
+  padding-right: 0;
+}
 
   &:hover{
     color: orangered;
   }
-`;
-
-export const MoviePoster = styled.img` 
-width: 214px;
-`;
-
-export const MovieName = styled.h2` 
-padding: 0 16px;
-font-weight: 500;
-`;
-
-
-//-------- Cast --------
-export const ActorList = styled.ul` 
-margin: 0; padding: 0 16px; list-style: none;
-`;
-
-export const ActorItem = styled.li` 
-color: darkgray;
-
-`;
-
-export const ActorPoster = styled.img` 
-width: 214px;
-`;
-
-export const ActorName = styled.p` 
-padding: 0 16px; font-weight: 500;
-`;
-
-export const ActorCharacter = styled.p` 
-padding: 0 16px; font-weight: 500;
-`;
-
-
-
-//-------- reviews --------
-export const ReviewsList = styled.ul` 
-margin: 0; padding: 0 16px; list-style: none;
-`;
-
-export const ReviewsItem = styled.li` 
-color: darkgray; 
-`;
-
-export const ReviewerName = styled.p` 
-padding: 0 16px; font-weight: 500;
-`;
-
-export const ReviewText = styled.p` 
-padding: 0 16px; font-weight: 500;
 `;

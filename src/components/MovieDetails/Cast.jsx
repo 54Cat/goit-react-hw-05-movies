@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from 'components/Loader/Loader';
-import Notification from 'components/Notification/Notification';
+import {Error} from 'components/Notification/Notification';
 import { FetchApiMovieIdCredits } from 'components/FetchApi/FetchApi';
-import { ActorList, ActorItem, ActorPoster, ActorName, ActorCharacter } from 'components/MovieDetails/SingleMovieMarkupStyled';
+import { ActorList, ActorItem, ActorPoster, ActorName, ActorCharacter } from 'components/MovieDetails/CastStyled';
+import img from 'img/noPhoto.jpg';
+
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const SIZE = 'original';
@@ -35,14 +37,14 @@ export const Cast = () => {
     return (
         <>
             {loading && <Loader />}
-            {error && <Notification />}
+            {error && <Error />}
             {cast && <>
                 <ActorList> 
                     {cast.map(({ cast_id, original_name, character, profile_path }) => (
                         <ActorItem key={cast_id}>
-                            <ActorPoster src={`${BASE_URL}${SIZE}${profile_path}`} alt={original_name} />
+                            <ActorPoster src={profile_path ? `${BASE_URL}${SIZE}${profile_path}` : img} alt={original_name} />
                             <ActorName>{original_name}</ActorName>
-                            <ActorCharacter>Character: {character}</ActorCharacter>
+                            <ActorCharacter>{character}</ActorCharacter>
                             </ActorItem>
                     ))} 
                 </ActorList>

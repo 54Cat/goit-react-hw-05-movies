@@ -1,7 +1,12 @@
-import { Btn } from 'components/Button/ButtonStyled';
+import { BtnLoadMore, BtnGoBack } from 'components/Button/ButtonStyled';
 
-export default function Button ({ onClick }) {
+export function ButtonLoadMore ({ onClick, text }) {
     return (
-        <Btn type="button" onClick={onClick}>Load more</Btn>
+        <BtnLoadMore type="button" onClick={onClick}>{text}</BtnLoadMore>
+    );
+}
+export function ButtonGoBack({ onClick, text }) {
+    return (
+        <BtnGoBack type="button" onClick={onClick}>{text}</BtnGoBack>
     );
 }

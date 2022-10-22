@@ -1,5 +1,13 @@
-export default function Notification () {
+import { Notify } from 'components/Notification/NotificationStyled';
+
+export function Error() {
   return (
-    <p>Error, something went wrong. Please try again.</p>
+    <Notify>Error, something went wrong. Please try again.</Notify>
+  );
+};
+
+export function NoRviews () {
+  return (
+    <Notify>Sorry, no reviews yet.</Notify>
   );
 };

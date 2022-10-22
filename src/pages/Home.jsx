@@ -1,9 +1,9 @@
 import {useEffect, useState } from "react";
 import Loader from 'components/Loader/Loader';
-import Notification from 'components/Notification/Notification';
+import {Error} from 'components/Notification/Notification';
 import MovieGalleryList from 'components/Gallery/GalleryList/MovieGalleryList';
 import { FetchApiTrending } from 'components/FetchApi/FetchApi';
-import { AppContainer } from 'components/App/AppStyled';
+import { AppContainer, Title } from 'components/App/AppStyled';
 
 export const Home = () => {
     const [movies, setMovies] = useState([]);
@@ -33,9 +33,9 @@ export const Home = () => {
         <AppContainer>
             {loading && <Loader />}
 
-            {error && <Notification />}
+            {error && <Error />}
             {isMovies &&<>
-                <h2>Trending today</h2>
+                <Title>Trending today</Title>
                 <MovieGalleryList movies={movies} />
             </>}
         </AppContainer>

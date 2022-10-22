@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from 'components/Loader/Loader';
-import Notification from 'components/Notification/Notification';
+import {NoRviews, Error} from 'components/Notification/Notification';
 import { FetchApiMovieIdReviews } from 'components/FetchApi/FetchApi';
-import Button from "components/Button/Button";
-import { ReviewsList, ReviewsItem, ReviewerName, ReviewText } from 'components/MovieDetails/SingleMovieMarkupStyled';
+import {ButtonLoadMore} from "components/Button/Button";
+import { ReviewsList, ReviewsItem, ReviewerName, ReviewText } from 'components/MovieDetails/ReviewsStyled';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState(null);
@@ -50,6 +50,7 @@ export const Reviews = () => {
                 }
             }
             catch (error) {
+                console.log(error);
                 setError({ error });
             }
             finally {
@@ -66,9 +67,8 @@ export const Reviews = () => {
     return (
         <>
             {loading && <Loader />}
-            {error && <Notification />}
-            {showLoadMore && <Button onClick={loadMore} />}
-            {!reviews && <p>Sorry, no reviews yet.</p>}
+            {error && <Error />}
+            {!reviews && <NoRviews/>}
             {reviews && <>
                 <ReviewsList> 
                     {reviews.map(({ id, author, content }) => (
@@ -78,7 +78,7 @@ export const Reviews = () => {
                         </ReviewsItem>
                     ))} 
                 </ReviewsList>
-
+                {showLoadMore && <ButtonLoadMore onClick={loadMore} />}
             </>} 
         </>
     )

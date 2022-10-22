@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from 'components/Loader/Loader';
-import Notification from 'components/Notification/Notification';
+
+import {Error} from 'components/Notification/Notification';
 import { SingleMovieMarkup } from 'components/MovieDetails/SingleMovieMarkup';
 import { FetchApiMovieId } from 'components/FetchApi/FetchApi';
-import { AppContainer } from 'components/App/AppStyled';
+import {ButtonGoBack} from "components/Button/Button";
+import { ContainerDetails } from 'components/MovieDetails/SingleMovieMarkupStyled';
+
 
 export const MovieDetails = () => {
     const [movie, setMovie] = useState(null);
@@ -29,11 +32,18 @@ export const MovieDetails = () => {
         fetchMovieId(id);
     }, [id])
 
+    // const goBack = () => {
+        
+    // }
+
     return (
-        <AppContainer>
+        <>
             {loading && <Loader />}
-            {error && <Notification />}
+            {error && <Error />}
+            <ContainerDetails>
+                <ButtonGoBack to={`/`} text='Go back' />
+            </ContainerDetails>
             {movie && <SingleMovieMarkup details={movie} />} 
-        </AppContainer>
+        </>
     )
 }

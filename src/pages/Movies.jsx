@@ -6,8 +6,8 @@ import { FetchApiSearchMovies } from 'components/FetchApi/FetchApi';
 import Loader from 'components/Loader/Loader';
 import Form from 'components/Form/Form';
 import MovieGalleryList from 'components/Gallery/GalleryList/MovieGalleryList';
-import Notification from 'components/Notification/Notification';
-import Button from "components/Button/Button";
+import {Error} from 'components/Notification/Notification';
+import {ButtonLoadMore} from "components/Button/Button";
 import { Outlet } from "react-router-dom";
 
 export const Movies = () => {
@@ -73,9 +73,9 @@ export const Movies = () => {
             <AppContainer>
                 <Form onSubmit={setMovieName} />
                 {loading && <Loader />}
-                {error && <Notification />}
+                {error && <Error />}
                 {movies && <MovieGalleryList movies={movies} />}
-                {showLoadMore && <Button onClick={loadMore} />}
+                {showLoadMore && <ButtonLoadMore onClick={loadMore} text='loadMore' />}
             </AppContainer>
             <Outlet />
         </>
