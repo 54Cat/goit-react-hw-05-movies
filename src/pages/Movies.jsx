@@ -10,7 +10,7 @@ import { Error } from 'components/Notification/Notification';
 import { ButtonLoadMore } from "components/Button/Button";
 import { useSearchParams } from "react-router-dom";
 
-export const Movies = () => {
+export default function Movies () {
     const [movies, setMovies] = useState([]);  
     const [page, setPage] = useState(1);
     const [error, setError] = useState(null);

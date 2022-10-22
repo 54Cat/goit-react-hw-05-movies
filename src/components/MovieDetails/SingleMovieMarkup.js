@@ -1,5 +1,6 @@
 import { SingleMovie,MainInfo,AdditionalInfo, ContainerPoster, ContainerInfo,Section, MovieName, MovieYear,MoviePoster, Title, Rating, Text, TextSpan, GenresList, GenresItem, DetailsList, DetailsLink } from 'components/MovieDetails/SingleMovieMarkupStyled';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import img from 'img/noPoster.jpg';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
@@ -19,6 +20,7 @@ export const SingleMovieMarkup = ({ details }) => {
 
     return (
         <SingleMovie>
+
             <MainInfo>
                 <ContainerPoster>
                     <MoviePoster src={poster_path ? `${BASE_URL}${SIZE}${poster_path}` : img} alt={original_title} />
@@ -50,18 +52,19 @@ export const SingleMovieMarkup = ({ details }) => {
             </MainInfo>
 
             <AdditionalInfo>
-                <>
-                    <Title>Additional Information</Title>
-                    <DetailsList> 
-                        {detailsItems.map(({ href, text }) => (
-                                <DetailsLink key={href} to={href}>
-                                    {text}
-                                </DetailsLink>
-                        ))} 
-                    </DetailsList>
-                </>
+                <Title>Additional Information</Title>
+                <DetailsList> 
+                    {detailsItems.map(({ href, text }) => (
+                            <DetailsLink key={href} to={href}>
+                                {text}
+                            </DetailsLink>
+                    ))} 
+                </DetailsList>
             </AdditionalInfo>
-            <Outlet/>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+            </Suspense>
+            
         </SingleMovie>
     );
 }

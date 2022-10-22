@@ -5,7 +5,7 @@ import MovieGalleryList from 'components/Gallery/GalleryList/MovieGalleryList';
 import { FetchApiTrending } from 'components/FetchApi/FetchApi';
 import { AppContainer, Title } from 'components/App/AppStyled';
 
-export const Home = () => {
+export default function Home(){
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);

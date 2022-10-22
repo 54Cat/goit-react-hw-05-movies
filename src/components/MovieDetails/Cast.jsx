@@ -10,7 +10,7 @@ import img from 'img/noPhoto.jpg';
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const SIZE = 'original';
 
-export const Cast = () => {
+export default function Cast () {
     const [cast, setCast] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);

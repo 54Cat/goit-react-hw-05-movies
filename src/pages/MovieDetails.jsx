@@ -7,7 +7,7 @@ import { FetchApiMovieId } from 'components/FetchApi/FetchApi';
 import {ButtonGoBack} from "components/Button/Button";
 import { ContainerDetails } from 'components/MovieDetails/SingleMovieMarkupStyled';
 
-export const MovieDetails = () => {
+export default function MovieDetails () {
     const [movie, setMovie] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);

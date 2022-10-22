@@ -6,7 +6,7 @@ import { FetchApiMovieIdReviews } from 'components/FetchApi/FetchApi';
 import {ButtonLoadMore} from "components/Button/Button";
 import { ReviewsList, ReviewsItem, ReviewerName, ReviewText } from 'components/MovieDetails/ReviewsStyled';
 
-export const Reviews = () => {
+export default function Reviews () {
   const [reviews, setReviews] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
